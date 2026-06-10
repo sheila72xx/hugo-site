@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on A Hugo website</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on A Hugo website</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我的第一篇博客</title>
+      <link>/2026/04/29/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>/2026/04/29/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;使用 R 搭建 Hugo 静态网站（完整步骤）:&lt;/strong&gt;    &lt;br&gt;
+&lt;em&gt;R使用的是4.3.3版本&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;1️⃣ 安装必要 R 包   &lt;br&gt;
+install.packages(c(&amp;ldquo;blogdown&amp;rdquo;, &amp;ldquo;xfun&amp;rdquo;, &amp;ldquo;rmarkdown&amp;rdquo;), update = TRUE)
+说明：     &lt;br&gt;
+blogdown：R 与 Hugo 的接口，管理网站生成   &lt;br&gt;
+xfun：提供一些辅助函数    &lt;br&gt;
+rmarkdown：支持 RMarkdown 文件渲染成网页&lt;/p&gt;
+&lt;p&gt;2️⃣ 安装 Hugo引擎（静态网站生成器）         &lt;br&gt;
+blogdown::install_hugo()    &lt;br&gt;
+说明：      &lt;br&gt;
+Hugo 是静态网站生成器，将 Markdown / RMarkdown 转为 HTML    &lt;br&gt;
+默认安装到系统路径，可直接使用&lt;/p&gt;
+&lt;p&gt;3️⃣ 创建网站项目         &lt;br&gt;
+第一次搭建，在电脑上新建一个空文件夹（比如blogdown_default）
+setwd(&amp;ldquo;c:/blogdown_default&amp;rdquo;)       &lt;br&gt;
+blogdown::new_site()      &lt;br&gt;
+说明：        &lt;br&gt;
+setwd() 指定你要存放网站文件夹的位置     &lt;br&gt;
+new_site() 会在当前目录生成 Hugo 默认网站结构，      &lt;br&gt;
+核心文件夹作用：   &lt;br&gt;
+content/      # 网站内容（.Rmd / .md 文件）         &lt;br&gt;
+themes/       # 网站主题（皮肤、样式、布局）    &lt;br&gt;
+public/       # 编译后的成品网站（部署用）     &lt;br&gt;
+config.yaml   # 网站配置文件（改标题、菜单、主题）&lt;/p&gt;
+&lt;p&gt;Hugo + Blogdown 默认主题 = Lithium    &lt;br&gt;
+Lithium 主题默认导航只有 3 项：About（关于）GitHub（链接）Twitter（链接）  &lt;br&gt;
+更换主题：国内网不能用install_theme(),可以去https://github.com 下载ZIP，解压，放到themes文件夹下，修改config.yaml&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A Plain Markdown Post</title>
+      <link>/2016/12/30/a-plain-markdown-post/</link>
+      <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
+      <guid>/2016/12/30/a-plain-markdown-post/</guid>
+      <description>&lt;p&gt;This is a post written in plain Markdown (&lt;code&gt;*.md&lt;/code&gt;) instead of R Markdown (&lt;code&gt;*.Rmd&lt;/code&gt;). The major differences are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (&lt;code&gt;```{r}&lt;/code&gt;);&lt;/li&gt;
+&lt;li&gt;A plain Markdown post is rendered through &lt;a href=&#34;https://gohugo.io/overview/configuration/&#34;&gt;Blackfriday&lt;/a&gt;, and an R Markdown document is compiled by &lt;a href=&#34;http://rmarkdown.rstudio.com&#34;&gt;&lt;strong&gt;rmarkdown&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&#34;http://pandoc.org&#34;&gt;Pandoc&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown. For example, you can write a task list with Blackfriday but not with Pandoc:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lorem Ipsum</title>
+      <link>/2015/01/01/lorem-ipsum/</link>
+      <pubDate>Thu, 01 Jan 2015 13:09:13 -0600</pubDate>
+      <guid>/2015/01/01/lorem-ipsum/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Lorem ipsum&lt;/strong&gt; dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore &lt;em&gt;magna aliqua&lt;/em&gt;. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
