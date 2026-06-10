@@ -1,7 +1,7 @@
-baseurl: /
+baseurl: https://sheila72xx.github.io/hugo-site/
 locale: en-US
 title: A Hugo website
-theme: hugo-PaperMod
+theme: PaperMod
 ignoreFiles:
   - \.Rmd$
   - \.Rmarkdown$
