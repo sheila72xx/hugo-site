@@ -94,7 +94,17 @@ shiny::runApp()
 # 4.启动hugo预览服务   
 blogdown::serve_site()     
  
-若需要把shiny工具做成浏览器访问的形式，需要先把shiny app部署到浏览器上
+若需要把shiny工具做成浏览器访问的形式，需要先把shiny app部署到浏览器上                 
+
+
+Git 管理仓库，提交到 GitHub
+配置 GitHub Actions 自动 build + 部署到 gh-pages
+GitHub Pages 设置分支 gh-pages → 网站上线     
+更新内容内，在后端运行：   
+git add .
+git commit -m "更新文章：新文章标题"
+git push origin main
+
 
 
 
