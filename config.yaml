@@ -18,6 +18,8 @@ menu:
       url: https://github.com/rstudio/blogdown
     - name: Twitter
       url: https://twitter.com/rstudio
+    - name: "Dashboard"
+      url: "/dashboard/"
 params:
   MathJaxCDN: //cdnjs.cloudflare.com/ajax/libs
   MathJaxVersion: 2.7.5

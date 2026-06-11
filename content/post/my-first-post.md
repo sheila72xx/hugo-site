@@ -1,9 +1,9 @@
 ---
-title: "我的第一篇博客"
+title: "R studio创建Hugo网站，并部署到Github Pages"
 date: 2026-04-29
 ---
 
-**使用 R 搭建 Hugo 静态网站（完整步骤）:**       
+**一、使用 R 搭建 Hugo 静态网站（完整步骤）:**       
 *R使用的是4.3.3版本*      
 
 1️⃣ 安装必要 R 包      
@@ -97,13 +97,89 @@ blogdown::serve_site()
 若需要把shiny工具做成浏览器访问的形式，需要先把shiny app部署到浏览器上                 
 
 
-Git 管理仓库，提交到 GitHub
-配置 GitHub Actions 自动 build + 部署到 gh-pages
-GitHub Pages 设置分支 gh-pages → 网站上线     
-更新内容内，在后端运行：   
+**二、管理代码(Git+Github)**    
+Git 帮你管理代码版本，GitHub 当作远程仓库存放网站源文件。  
+   
+**Github创建仓库**   
+登录 GitHub → 新建仓库    
+Repository name: hugo-site    
+不要勾选 Initialize with README / .gitignore / License     
+
+获取仓库地址，例如：
+https://github.com/sheila72xx/hugo-site.git   
+新建仓库后，config.yaml中baseURL需要同步更新
+
+
+**在本地初始化Git并关联Github**    
+打开R studio Terminal(Tools,Terminal,new Terminal)   
+输入：   
+#初始化：git init    
+#添加文件：git add .     
+#提交：git commit -m "Initial commit"   
+#连接Github仓库：git remote add origin https://github.com/sheila72xx/hugo-site.git   
+#推送到Github:   
+git branch -M main    
+git push -u origin main    
+    
+    
+ 
+**三、配置Github Actions 自动部署Hugo网站**    
+GitHub Actions 就是一个“自动机器人”，帮你把 Hugo 的源文件生成最终网页。  
+
+在R studio中 项目根目录创建目录.github/workflows/    
+创建文件deploy.yml，内容示例:     
+name: hugo-deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v6
+        with:
+          hugo-version: '0.146.0'
+      - name: Build
+        run: hugo --minify
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public      
+            
+在R studio Terminal提交并推送  
+git add .github/workflows/deploy.yml
+git commit -m "Add GitHub Actions workflow for Hugo deploy"
+git push     
+ 
+在 GitHub → Actions 可以看到自动构建状态：
+绿色对号 ✅ 表示成功
+红色 × 表示失败，需要查看报错      
+ 
+以上步骤机器人会自动把网站生成好并放到 gh-pages。
+ 
+ 
+ 
+**四、托管网站，开启Github Pages**      
+GitHub Pages 就像是你的网站的“服务器”，帮你把 gh-pages 的静态网页展示出来  
+
+打开 GitHub 仓库 → Settings → Pages
+Source：选择 gh-pages branch 或 Actions 自动生成的分支
+保存 → 几分钟后即可访问网站
+  
+  
+    
+**五、更新网站**      
+更新内容后，在后端运行：   
 git add .
 git commit -m "更新文章：新文章标题"
-git push origin main
+git push origin main   
+GitHub Actions 自动生成新的 public/ → 自动部署
 
 
 
