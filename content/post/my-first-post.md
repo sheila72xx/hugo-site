@@ -95,7 +95,9 @@ shiny::runApp()
 blogdown::serve_site()     
  
 若需要把shiny工具做成浏览器访问的形式，需要先把shiny app部署到浏览器上                 
-
+使用 shinyapps.io，这是 RStudio 官方提供的云托管平台
+操作： 在 RStudio 中安装 rsconnect 包（安装失败），登录shinyapps.io 账户后，运行代码 rsconnect::deployApp('你的应用路径')，即可一键将应用发布到云端。   
+集成： 部署成功后，会得到一个公网链接。在 Hugo 的 Markdown 文章中，直接贴上这个链接，或者使用 <iframe src="你的shinyapps链接" width="100%" height="600"></iframe> 将其无缝嵌入到网页中。
 
 **二、管理代码(Git+Github)**    
 Git 帮你管理代码版本，GitHub 当作远程仓库存放网站源文件。  
