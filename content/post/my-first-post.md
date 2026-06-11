@@ -50,13 +50,12 @@ C:\blogdown_default\content\about.md：是「独立的页面」
 访问方式：网站导航栏的「About」链接，或者直接访问 http://你的网址/about/
 
 4️⃣ 启动本地网站预览
-# 启动本地服务器，浏览器打开网站
 blogdown::serve_site()         
 说明：        
 在RStudio 的右下面板可以实时看效果        
 热更新：修改 RMarkdown 或 Markdown 文件后，浏览器会自动刷新
 
-5️⃣ 网站更新
+5️⃣ 网站更新   
 新建的网站文件夹里有个content 文件夹。这里就是更新网站内容的地方。你只需用记事本或RStudio，打开其中的.md 或.Rmd
 文件，修改成自己的内容后保存，然后在R 里运行建站函数：
 blogdown::build_site()
@@ -70,34 +69,11 @@ blogdown::build_site()
 build_site()会清空旧的public/文件夹，重新编译所有内容，生成完整的静态网站文件      
             
             
-            
-new_site() → 创建网站骨架
-content/ → 编辑文章和页面
-serve_site() → 本地实时预览
+new_site() → 创建网站骨架   
+content/ → 编辑文章和页面  
+serve_site() → 本地实时预览  
 build_site() → 生成最终 public/ 静态网站   
          
-          
-Rshiny  
-# 1.环境准备  
-安装shiny包       
-# 2.创建shiny应用    
-在hugo项目根目录 c:/blogdown_default/ 里，新建一个文件夹shiny-demo/  
-在 shiny-demo/ 里新建 app.R文件  
-本地运行shiny 
-setwd("c:/blogdown_default/shiny-demo")            
-shiny::runApp()
-运行成功后，会弹出一个窗口，控制台会显示类似 http://127.0.0.1:7470 的地址，把这个地址复制下来。       
-保持这个窗口 / 进程不关闭，否则 Shiny 服务会停止。        
-# 3.在hugo中创建shiny页面     
-在 Hugo 项目的 content/ 目录下，新建文件 shiny-page.md，更新shiny运行后的地址    
-把页面添加到hugo导航栏    
-# 4.启动hugo预览服务   
-blogdown::serve_site()     
- 
-若需要把shiny工具做成浏览器访问的形式，需要先把shiny app部署到浏览器上                 
-使用 shinyapps.io，这是 RStudio 官方提供的云托管平台
-操作： 在 RStudio 中安装 rsconnect 包（安装失败），登录shinyapps.io 账户后，运行代码 rsconnect::deployApp('你的应用路径')，即可一键将应用发布到云端。   
-集成： 部署成功后，会得到一个公网链接。在 Hugo 的 Markdown 文章中，直接贴上这个链接，或者使用 <iframe src="你的shinyapps链接" width="100%" height="600"></iframe> 将其无缝嵌入到网页中。
 
 **二、管理代码(Git+Github)**    
 Git 帮你管理代码版本，GitHub 当作远程仓库存放网站源文件。  
@@ -159,8 +135,8 @@ git add .github/workflows/deploy.yml
 git commit -m "Add GitHub Actions workflow for Hugo deploy"
 git push     
  
-在 GitHub → Actions 可以看到自动构建状态：
-绿色对号 ✅ 表示成功
+在 GitHub → Actions 可以看到自动构建状态：  
+绿色对号 ✅ 表示成功    
 红色 × 表示失败，需要查看报错      
  
 以上步骤机器人会自动把网站生成好并放到 gh-pages。
@@ -170,18 +146,43 @@ git push
 **四、托管网站，开启Github Pages**      
 GitHub Pages 就像是你的网站的“服务器”，帮你把 gh-pages 的静态网页展示出来  
 
-打开 GitHub 仓库 → Settings → Pages
-Source：选择 gh-pages branch 或 Actions 自动生成的分支
+打开 GitHub 仓库 → Settings → Pages   
+Source：选择 gh-pages branch 或 Actions 自动生成的分支   
 保存 → 几分钟后即可访问网站
   
   
     
 **五、更新网站**      
 更新内容后，在后端运行：   
-git add .
-git commit -m "更新文章：新文章标题"
-git push origin main   
-GitHub Actions 自动生成新的 public/ → 自动部署
+git add .   
+git commit -m "更新文章：新文章标题"  
+git push origin main     
+GitHub Actions 自动生成新的 public/ → 自动部署         
+ 
+ 
+          
+Rshiny  
+# 1.环境准备  
+安装shiny包       
+# 2.创建shiny应用    
+在hugo项目根目录 c:/blogdown_default/ 里，新建一个文件夹shiny-demo/  
+在 shiny-demo/ 里新建 app.R文件  
+本地运行shiny 
+setwd("c:/blogdown_default/shiny-demo")            
+shiny::runApp()
+运行成功后，会弹出一个窗口，控制台会显示类似 http://127.0.0.1:7470 的地址，把这个地址复制下来。       
+保持这个窗口 / 进程不关闭，否则 Shiny 服务会停止。        
+# 3.在hugo中创建shiny页面     
+在 Hugo 项目的 content/ 目录下，新建文件 shiny-page.md，更新shiny运行后的地址    
+把页面添加到hugo导航栏    
+# 4.启动hugo预览服务   
+blogdown::serve_site()     
+ 
+若需要把shiny工具做成浏览器访问的形式，需要先把shiny app部署到浏览器上                 
+使用 shinyapps.io，这是 RStudio 官方提供的云托管平台
+操作： 在 RStudio 中安装 rsconnect 包（安装失败），登录shinyapps.io 账户后，运行代码 rsconnect::deployApp('你的应用路径')，即可一键将应用发布到云端。   
+集成： 部署成功后，会得到一个公网链接。在 Hugo 的 Markdown 文章中，直接贴上这个链接，或者使用 <iframe src="你的shinyapps链接" width="100%" height="600"></iframe> 将其无缝嵌入到网页中。
+ 
 
 
 
